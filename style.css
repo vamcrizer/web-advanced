@@ -1,0 +1,700 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@100;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@100;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  /* Main Container */
+  .main-container {
+    display: flex;
+    min-height: 100vh;
+    transition: 0.3s;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    transition: 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: white;
+    border-right: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 20;
+  }
+
+  /* Thêm class collapsed cho sidebar */
+.sidebar.collapsed {
+    width: 70px;
+    padding: 1rem 0.5rem;
+  }
+/* Ẩn text khi collapse */
+.sidebar.collapsed .nav-item span,
+.sidebar.collapsed .user-dropdown,
+.sidebar.collapsed span,
+.sidebar.collapsed h1:not(:first-of-type),
+.sidebar.collapsed .divider:not(:first-of-type) {
+  display: none;
+}
+
+.sidebar.collapsed h1:first-of-type {
+    width: 40px; /* hoặc kích thước phù hợp với logo của bạn */
+    height: 40px;
+    background-image: url('./AI.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    /* Xóa text của h1 */
+    font-size: 0;
+    padding: 0;
+  }
+
+  .sidebar.collapsed .divider:first-of-type {
+    width: 80%; /* hoặc kích thước phù hợp */
+    margin: 10px auto;
+  }
+  
+
+/* Căn giữa icon khi collapse */
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 0.75rem 0rem; /* Add vertical padding */
+  width: 100%; /* Ensure full width */
+}
+
+.sidebar.collapsed .nav-item i,
+.sidebar.collapsed .nav-item img {
+  margin: 0; /* Remove any existing margins */
+  display: flex;
+  position: relative;
+  right: 1px;
+  bottom:1px;
+  align-items: center;
+  justify-content: center;
+  width: 24px; /* Set consistent icon size */
+  height: 24px;
+}
+
+
+
+  /* Xoay nút collapse khi sidebar thu gọn */
+  .sidebar.collapsed .back-btn .collapse {
+    transform: rotate(180deg);
+  }
+  .user-dropdown {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: left;
+    padding: 1.5rem 1rem;
+    background: #ECECEC;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000000;
+    border: none;
+  }
+
+  .nav-item {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    opacity: 0.6;
+    font-size: 15px;
+    width: 100%;
+    text-align: left;
+    align-items: start;
+    padding: 0.6rem 1rem;
+    transition: all 0.3s;
+    cursor: pointer; /* Hiển thị con trỏ chuột */
+    border: none; /* Xóa bỏ viền mặc định */
+    background: #ffffff; /* Thêm màu nền xám nhạt cho trạng thái bình thường */
+    border-radius: 0.55rem;
+}
+
+/* Trạng thái bình thường của active */
+.nav-item.active {
+    background: #ede9fe; /* Màu tím */
+    color: #7c3aed;
+    opacity: 1;
+    border-radius: 0.55rem;
+    border: none; /* Đảm bảo không có viền khi active */
+}
+
+/* Hover chỉ đổi màu khi không phải là active */
+.nav-item:not(.active):hover {
+    background: #f3f4f6; /* Màu xám nhẹ */
+    opacity: 1;
+    color: #333333;
+    cursor: pointer;
+}
+
+.nav-icon {
+    width: 19px; /* Chỉnh kích thước icon theo nhu cầu */
+    height: 19px;
+    margin-right: 10px; /* Khoảng cách giữa icon và chữ */
+    position: relative;
+    top: 3px; /* Đẩy icon xuống dưới một chút */
+}
+
+.nav-icon.quizz {
+    width: 24x; /* Chỉnh kích thước icon theo nhu cầu */
+    height: 24px;
+    left: -1px;
+}
+
+
+
+.back-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    border: none;
+    display: flex;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    margin-top: auto;
+    margin-left: auto;
+  }
+  .back-btn:hover{
+    background: #f3f4f6; /* Màu xám nhẹ */
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .nav-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  
+  .back-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  
+
+  .divider {
+    height: 5px;
+    width: 100%;   
+    border-top: 1px solid #565656;
+    opacity: 0.2;
+}
+
+.divider2 {
+    height: 5px;
+    max-width: 100%;
+    border-top: 1px solid #565656;
+    opacity: 0.2;
+}
+
+  /* Header */
+  .header-bar {
+    position: relative;
+    top: 0;
+    left: 200px;
+    right: 350px; /* Width of settings panel */
+    height: 50px;
+    transition: 0.3s;
+    width: calc(110%);
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    margin-left: -230px;
+    align-items: center;
+    padding-left: 20px;
+    background: white;
+    z-index: 100;
+  }
+
+  .header-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  /* Content Wrapper */
+  .content-wrapper {
+    flex: 1;
+    display: flex;
+    margin-left: 280px;
+    transition: 0.3s;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    margin-top: 50px;
+    flex-direction: column;
+    transition: 0.3s;
+    background: #f9fafb;
+    padding: 1.5rem;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    border-right: 1px solid #e5e7eb;
+    margin-left: -30px;
+  }
+
+  
+  /* Khi sidebar collapsed */
+  .sidebar.collapsed ~ .content-wrapper {
+    margin-left: 100px;
+  }
+  .sidebar.collapsed ~ .upload-area {
+    margin-left: 100px;
+  }
+  .sidebar.collapsed ~ .content-wrapper .upload-container {
+    width: 85%;
+  }
+  /* Settings Panel */
+  .settings-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    padding-top: calc(50px + 1.5rem); /* Header height + padding */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e5e7eb;
+  }
+
+
+
+
+  /* Rest of the styles remain unchanged */
+  .sidebar h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #111;
+  }
+
+  .tab-container {
+    width: 100%;
+    display: flex;
+    margin-left: -105px;
+    justify-content: center;
+    margin-bottom: 2rem;
+    
+  }
+
+  .tabs {
+    display: flex;
+  }
+
+  .tab {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 1rem 5rem;
+    background: #f3f4f6;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+  }
+
+  .tab.active {
+    background: #ede9fe;
+    color: #7c3aed;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+
+  .upload-container {
+    width: 83%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.3s;
+    position: relative; /* Thêm dòng này */
+    padding-bottom: 60px; /* Thêm dòng này để tạo khoảng trống cho nút */
+}
+  
+
+  .upload-area {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .upload-area input[type="file"] {
+    display: none;
+  }
+  
+  .submit-button{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 1rem 5rem;
+    background: #7c3aed;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    color: white;
+    position: absolute; /* Thay đổi từ relative sang absolute */
+    bottom: 0; /* Đặt nút ở dưới cùng của container */
+    left: 50%; /* Căn giữa nút */
+    transform: translateX(-50%); /* Căn giữa nút */
+  }
+
+  .submit-btn{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 1rem 5rem;
+    background: #7c3aed;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    color: white;
+    position: absolute; /* Thay đổi từ relative sang absolute */
+    bottom: 0; /* Đặt nút ở dưới cùng của container */
+    left: 50%; /* Căn giữa nút */
+    transform: translateX(-50%); /* Căn giữa nút */
+  }
+
+.generate-btn {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 1rem 5rem;
+    background: #7c3aed;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    color: white;
+    position: absolute; /* Thay đổi từ relative sang absolute */
+    bottom: 0; /* Đặt nút ở dưới cùng của container */
+    left: 50%; /* Căn giữa nút */
+    transform: translateX(-50%); /* Căn giữa nút */
+}
+  
+
+  .upload-icon {
+    color: #9ca3af;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .upload-text {
+    color: #6b7280;
+  }
+
+  .settings-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #e5e7eb;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-icon.setting {
+    top: 0px;
+    margin-right: 50px;
+}
+
+  .settings-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .settings-label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+
+  .settings-select {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    width: 100%;
+    padding: 0.75rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .chat-container {
+    margin-top: auto;
+    padding: 1rem;
+  }
+
+  .chat-input {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    background: white;
+    color: #374151;
+  }
+
+  .chat-input::placeholder {
+    color: #9ca3af;
+  }
+
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .text-input {
+    width: 100%;
+    display: flex;
+    min-height: 200px;
+    position: relative;
+    align-items: center;
+    padding-bottom: 60px;
+    flex-direction: column;
+    padding: 15px;
+    transition: width 0.3s;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-family: inherit;
+}
+    .text-input-container{
+        width: 83%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: width 0.3s;
+        position: relative; /* Thêm dòng này */
+        padding-bottom: 60px; /* Thêm dòng này để tạo khoảng trống cho nút */
+    }
+    .response-container {
+        margin-top: 20px; /* Khoảng cách phía trên */
+    }
+    
+    .response-output {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9; /* Màu nền nhạt cho phần phản hồi */
+    }
+    
+    /* Loading Spinner Styles */
+    .spinner {
+        width: 50px;
+        height: 50px;
+        margin: 20px auto;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #667eea;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    .loading-text {
+        color: #667eea;
+        font-weight: 600;
+        margin-top: 15px;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+
+    .question {
+        margin-bottom: 40px;
+    }
+
+    .options {
+        margin-top: 20px;
+        display: grid;
+        gap: 12px;
+    }
+
+    .option {
+        top: 10px;
+        background: #ffffff;
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 0.01rem solid #3d3d3d28;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .option:hover {
+        background: #e0e1e2;
+        transform: translateY(-2px);
+    }
+
+    .option.selected {
+        border-color: #7c3aed;
+        background: #eef2ff;
+    }
+
+    .option.correct {
+        background: #dcfce7;
+        border-color: #22c55e;
+    }
+
+    .option.wrong {
+        background: #fee2e2;
+        border-color: #ef4444;
+    }
+
+    .progress {
+        background: #f3f4f6;
+        padding: 15px 20px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+    }
+
+    .progress-bar {
+        background: #e5e7eb;
+        height: 8px;
+        border-radius: 4px;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .progress-bar-fill {
+        height: 100%;
+        background: #7c3aed;
+        transition: width 0.3s ease;
+    }
+    .nav-btn {
+      padding: 10px 15px;
+      cursor: pointer;
+      background: #7c3aed;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      position: absolute; /* Thay đổi thành absolute */
+      bottom: 20px;
+  }
+  
+  .prev-btn {
+      left: 10px; /* Đặt lại vị trí trái của prev-btn */
+  }
+  
+  .next-btn {
+      right: 10px; /* Đặt lại vị trí phải của next-btn */
+  }
+
+  .review-btn {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 1rem 5rem;
+    background: #7c3aed;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    color: white;
+    position: absolute; /* Thay đổi từ relative sang absolute */
+    left: 40%; /* Căn giữa nút */
+    transform: translateX(-50%); /* Căn giữa nút */
+  }
+  .reset-btn{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 1rem 5rem;
+    background: #7c3aed;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    color: white;
+    position: absolute; /* Thay đổi từ relative sang absolute */
+    left: 60%; /* Căn giữa nút */
+    transform: translateX(-50%); /* Căn giữa nút */
+  }
+
+  #result {
+    margin-top: 5px;
+    text-align: center;
+}
+
+#result div {
+    margin: 5px auto;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#result p {
+    margin: 5px 0;
+}
+
+/* Thêm hiệu ứng xuất hiện mượt mà */
+#result {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

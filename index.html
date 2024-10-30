@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Miles AI</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <h1>Miles AI</h1>
+      <div class="divider"></div>
+      <button class="user-dropdown">
+        Welcome, user
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <div class="divider"></div>
+      <nav class="nav-list">
+        <button class="nav-item active">
+            <img src="./Untitled.png" class="nav-icon" alt="Mic Icon">
+            <span>Record</span>
+          </button>
+          
+          <button class="nav-item">
+            <img src="./quizz.png" class="nav-icon quizz" alt="Help Icon">
+            <span>Quizz</span>
+          </button>
+          
+          <button class="nav-item">
+            <img src="./writing.png" class="nav-icon" alt="File Text Icon">
+            <span>Summary</span>
+          </button>
+          
+          <button class="nav-item">
+            <img src="./AI.png" class="nav-icon" alt="CPU Icon">
+            <span>Miles AI</span>
+          </button>
+          
+          <div class="divider"></div>
+          
+          <button class="nav-item">
+            <img src="./settings.png" class="nav-icon" alt="Settings Icon">
+            <span>Settings</span>
+          </button>
+          
+      </nav>
+
+      <button class="back-btn">
+        <img src="./collapse.png" class="nav-icon collapse" alt="Settings Icon">
+      </button>
+    </aside>
+
+    <div class="content-wrapper">
+      <!-- Header Bar -->
+      <div class="header-bar">
+        <h2 class="header-title">Quizz</h2>
+      </div>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="tab-container">
+            <div class="tabs">
+              <button class="tab active" id="document-tab">Document</button>
+              <button class="tab" id="text-tab">Text</button>
+            </div>
+        </div>
+    
+        <div class="upload-container" id="document-container">
+          <div class="upload-area" id="drop-area">
+              <input type="file" id="fileElem" accept="application/pdf" style="display: none;">
+              <label for="fileElem" class="upload-text">Click to upload or drag & drop your PDF here</label>
+              <div id="file-name" class="file-name"></div>
+              <div id="error-message" style="color: red;"></div>
+          </div>
+          <button class="submit-button" id="quizz-generate2" style="display:none">Generate</button>
+          <div class="loading" id="loading2" style="display:none">
+              <div class="spinner"></div>
+              <div class="loading-text">Processing document...</div>
+          </div>
+          <div id="quiz-section2" style="display: none;">
+              <div class="progress">
+                  <div>
+                      <span>Question <span id="current-question2">1</span>/<span id="total-questions2">5</span></span>
+                      <div class="progress-bar">
+                          <div class="progress-bar-fill2" style="width: 20%"></div>
+                      </div>
+                  </div>
+              </div>
+              <div id="quiz2"></div>
+              <button id="submit-btn2" class="submit-btn">Submit</button>
+              <div id="result2"></div>
+          </div>
+      </div>
+      
+    
+        <div class="text-input-container" id="text-container" style="display: none;">
+            <label for="text-input" id = "reminder">Enter your document:</label>
+            <textarea id="text-input" class="text-input" rows="5" placeholder="Enter anything..."></textarea>
+            <button class="submit-button" id ="quizz-generate">Generate</button>
+            <div id="quiz-section" style="display: none;">
+                <div class="progress">
+                    <div>
+                        <span>Question <span id="current-question">1</span>/<span id="total-questions">5</span></span>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 20%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="quiz"></div>
+                <button id="submit-btn" class="submit-btn">Submit</button>
+                <div id="result"></div>
+            </div>
+    
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </main>
+
+      <!-- Settings Panel -->
+      <aside class="settings-panel">
+        <div class="settings-header">
+            <img src="./settings_gear.png" class="nav-icon setting" alt="Help Icon">
+            <span>Settings</span>
+        </div>
+
+        <div class="settings-section">
+          <p class="settings-label">Document language</p>
+          <button class="settings-select">
+            English
+            <i data-lucide="chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="settings-section">
+          <p class="settings-label">Quizz language</p>
+          <button class="settings-select">
+            English
+            <i data-lucide="chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="settings-section">
+          <p class="settings-label">Model Select</p>
+          <button class="settings-select">
+            Advanced
+            <i data-lucide="chevron-down"></i>
+          </button>
+        </div>
+        <br>
+        <div class="divider2"></div>
+        <div class="chat-container">
+          <input
+            type="text"
+            placeholder="Ask me anything.."
+            class="chat-input"
+          />
+        </div>
+      </aside>
+    </div>
+  </div>
+
+</body>
+</html>

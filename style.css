@@ -342,6 +342,9 @@
   }
 
   .upload-container {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
     width: 83%;
     display: flex;
     flex-direction: column;
@@ -362,11 +365,13 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
+    cursor: pointer;
   }
 
   .upload-area input[type="file"] {
     display: none;
-  }
+}
+ 
   
   .submit-button{
     font-family: "Poppins", sans-serif;
@@ -559,6 +564,7 @@
 
     .question {
         margin-bottom: 40px;
+        font-size: 13px;
     }
 
     .options {
@@ -576,7 +582,10 @@
         cursor: pointer;
         transition: all 0.3s ease;
     }
-
+    .option.disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
     .option:hover {
         background: #e0e1e2;
         transform: translateY(-2px);
@@ -629,11 +638,11 @@
   }
   
   .prev-btn {
-      left: 10px; /* Đặt lại vị trí trái của prev-btn */
+      left: 1px; /* Đặt lại vị trí trái của prev-btn */
   }
   
   .next-btn {
-      right: 10px; /* Đặt lại vị trí phải của next-btn */
+      right: 1px; /* Đặt lại vị trí phải của next-btn */
   }
 
   .review-btn {
@@ -697,4 +706,20 @@
         transform: translateY(0);
     }
 }
+.resize-handle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: transparent;
+  cursor: ew-resize;
+}
 
+.resize-handle:hover {
+  background-color: #e5e7eb;
+}
+
+.resize-handle.active {
+  background-color: #7c3aed;
+}
